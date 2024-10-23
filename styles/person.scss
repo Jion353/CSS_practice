@@ -1,0 +1,99 @@
+$person-height: 287px;
+$person-width: 220px;
+$photo-scale: 200px;
+$rank-size: 32px;
+
+
+.person {
+  position: relative;
+  height: #{$person-height};
+  width: #{$person-width}; 
+  padding: 10px;
+  border-radius: 5%;
+  transition: transform 1s;
+  z-index: 1;
+
+  &__photo{
+    display: flex;
+    position: relative;
+    align-items: center;
+    height: #{$photo-scale};
+    width: #{$photo-scale};
+  }
+
+  &__photo > img{
+    height: #{$photo-scale};
+    width: #{$photo-scale};
+    border-radius: 50%;
+    transition-duration: 1s;
+  }
+
+  &__rank{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: #{$rank-size};
+    width: #{$rank-size};
+    position: absolute;
+    right: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #fff;
+    color: #8B0000;
+    border-radius: 50%;
+  }
+
+  &__details{
+
+
+    &__name{
+      margin-top: 8px;
+      display: flex;
+      justify-self: center;
+      font-size: 20px;
+      line-height: 23px;
+      font-weight: bold;
+      color: rgb(47, 79, 79);
+    }
+
+    &__extra{
+      justify-self: center;
+      display: none;
+    }
+
+    &__extra > *{
+      margin-top: 9px;
+      font-size: 18px;
+    }
+
+    &__sport::after{
+      content: ",\00a0";
+    }
+    
+    &__pay::before{
+      content: "$";
+    }
+    
+    &__pay::after{
+      content: "M";
+    }
+  }
+}
+
+.person:hover{
+  background-color: rgb(238, 238, 238);
+  transform: scale(1.2);
+  z-index: 10;
+}
+
+.person:hover .person__details__extra{
+  display: flex;
+}
+
+.person:hover .person__photo img{
+  border-radius: 25%;
+}
+
+
+
+
